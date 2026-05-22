@@ -1,17 +1,19 @@
 {
   "name": "klerp-frontend",
   "version": "1.0.0",
-"scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "npx vite preview"
-},
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.0",
     "axios": "^1.6.0",
-    "framer-motion": "^10.16.0",
+    "framer-motion": "^10.16.0"
+  },
+  "devDependencies": {
     "vite": "^5.0.0",
     "@vitejs/plugin-react": "^4.2.0"
   }
