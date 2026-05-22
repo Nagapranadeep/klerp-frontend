@@ -7,12 +7,12 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const [captchaInput, setCaptchaInput] = useState('')
   const [captchaImg, setCaptchaImg] = useState('')
+  const [csrf, setCsrf] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [captchaLoading, setCaptchaLoading] = useState(true)
   const { login } = useAuth()
   const navigate = useNavigate()
-  const [csrf, setCsrf] = useState('')
   const fetchCaptcha = useCallback(async () => {
     setCaptchaLoading(true)
     try {
