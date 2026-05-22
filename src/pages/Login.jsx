@@ -12,12 +12,13 @@ export default function Login() {
   const [captchaLoading, setCaptchaLoading] = useState(true)
   const { login } = useAuth()
   const navigate = useNavigate()
-
+  const [csrf, setCsrf] = useState('')
   const fetchCaptcha = useCallback(async () => {
     setCaptchaLoading(true)
     try {
       const res = await api.get('/api/captcha')
       setCaptchaImg(res.data.captchaImage)
+      setCsrf(res.data.csrf)
       setCaptchaInput('')
     } catch {
       setError('Could not load captcha. Check your connection.')
@@ -33,7 +34,7 @@ export default function Login() {
   setError('')
   setLoading(true)
   try {
-    await login(username, password, captchaInput)
+    await login(username, password, captchaInput, csrf)
     navigate('/dashboard')  // success — navigate immediately, don't touch captcha
   } catch (err) {
     setError(err.response?.data?.error || 'Login failed')
