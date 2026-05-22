@@ -12,10 +12,10 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
 
   async function login(username, password, captcha, csrf) {
-  const res = await api.post('/api/login', { username, password, captcha, csrf })
-  setUser(res.data)
-  return res.data
-}
+    const res = await api.post('/api/login', { username, password, captcha, csrf })
+    setUser(res.data)
+    return res.data
+  }
 
   async function logout() {
     await api.post('/api/logout')
